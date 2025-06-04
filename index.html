@@ -7,10 +7,15 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for rainbow gradient background */
+        /* Custom styles for rainbow gradient background and repeating pattern */
         body {
             font-family: "Inter", sans-serif;
-            background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+            /* Repeating 'bugiu' pattern as the first background layer */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='75'><text x='10' y='50' font-family='Inter, sans-serif' font-size='24' fill='rgba(255,255,255,0.08)' transform='rotate(-10 10 50)'>bugiu</text></svg>");
+            background-repeat: repeat;
+            /* Existing rainbow gradient as the second background layer */
+            background-color: transparent; /* Ensure the gradient shows through */
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='75'><text x='10' y='50' font-family='Inter, sans-serif' font-size='24' fill='rgba(255,255,255,0.08)' transform='rotate(-10 10 50)'>bugiu</text></svg>") repeat, linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -61,11 +66,7 @@
             <button id="btnLorrayne" class="button-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Lorrayne</button>
         </div>
 
-        <div id="contentDisplay" class="hidden flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg shadow-inner">
-            <!-- Added onerror attribute to handle potential image loading issues -->
-            <img id="displayImage" src="" alt="Personagem da Matilha" class="max-w-full h-auto rounded-lg mb-4 shadow-md" style="max-height: 400px; object-fit: contain;" onerror="this.onerror=null; this.src='https://placehold.co/400x400/FFC0CB/000000?text=Erro+ao+carregar+imagem';">
-            <p id="displayText" class="text-2xl font-bold text-gray-700"></p>
-        </div>
+        <!-- The contentDisplay div is no longer needed as we are redirecting -->
     </div>
 
     <script>
@@ -75,46 +76,32 @@
         const btnConte = document.getElementById('btnConte');
         const btnSophia = document.getElementById('btnSophia');
         const btnLorrayne = document.getElementById('btnLorrayne');
-        const contentDisplay = document.getElementById('contentDisplay');
-        const displayImage = document.getElementById('displayImage');
-        const displayText = document.getElementById('displayText');
-
-        /**
-         * Updates the displayed image and text content.
-         * @param {string} imageSrc - The URL or path to the image.
-         * @param {string} text - The text to display below the image.
-         */
-        function updateContent(imageSrc, text) {
-            displayImage.src = imageSrc;
-            displayText.textContent = text;
-            contentDisplay.classList.remove('hidden'); // Show the display area
-        }
 
         // Event listener for "Bia" button
         btnBia.addEventListener('click', () => {
-            // *** SUBSTITUA 'url_da_imagem_bia.jpg' PELO URL REAL DA IMAGEM DA BIA ***
-            updateContent('C:\Users\user\OneDrive\Documentos\GitHub\bugius\WhatsApp Image 2025-06-03 at 22.59.09.jpeg', "bibia");
+            // Replace with the actual URL for Bia
+            window.location.href = 'https://www.instagram.com/beatrizgramachoo/';
         });
 
         // Event listeners for other buttons
         btnReginaldo.addEventListener('click', () => {
-            // *** SUBSTITUA 'url_da_imagem_reginaldo.jpg' PELO URL REAL DA IMAGEM DO REGINALDO ***
-            updateContent('C:\Users\user\OneDrive\Documentos\GitHub\bugius\WhatsApp Image 2025-06-03 at 22.54.25.jpeg', 'Reginaldo');
+            // Replace with the actual URL for Reginaldo
+            window.location.href = 'https://www.instagram.com/kj_pk2/';
         });
 
         btnConte.addEventListener('click', () => {
-            // *** SUBSTITUA 'url_da_imagem_conte.jpg' PELO URL REAL DA IMAGEM DO CONTE ***
-            updateContent('C:\Users\user\OneDrive\Documentos\GitHub\bugius\WhatsApp Image 2025-06-03 at 22.57.48.jpeg', 'Conte');
+            // Replace with the actual URL for Conte
+            window.location.href = 'https://www.instagram.com/rafsconte/';
         });
 
         btnSophia.addEventListener('click', () => {
-            // *** SUBSTITUA 'url_da_imagem_sophia.jpg' PELO URL REAL DA IMAGEM DA SOPHIA ***
-            updateContent('https://www.infoescola.com/wp-content/uploads/2018/02/bugio-650139160.jpg', 'Sophia');
+            // Replace with the actual URL for Sophia
+            window.location.href = 'https://www.instagram.com/sopsmpm_/';
         });
 
         btnLorrayne.addEventListener('click', () => {
-            // *** SUBSTITUA 'url_da_imagem_lorrayne.jpg' PELO URL REAL DA IMAGEM DA LORRAYNE ***
-            updateContent('C:\Users\user\OneDrive\Documentos\GitHub\bugius\WhatsApp Image 2025-06-03 at 22.58.27.jpeg', 'Lorrayne');
+            // Replace with the actual URL for Lorrayne
+            window.location.href = 'https://www.instagram.com/cicera_lorrayne/';
         });
     </script>
 </body>
